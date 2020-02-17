@@ -1,23 +1,35 @@
 ﻿using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 using System.Diagnostics;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace lab2
 {
     /// <summary>
     /// Реализация практического задания по созданию каталога изданий
     /// </summary>
-    class lab2
+    public class lab2
     {
-       /// <summary>
-       /// Этот класс используется для дальнейшего наследования
-       /// </summary>
-       public abstract class Source
+
+        /// <summary>
+        /// Этот класс используется для дальнейшего наследования
+        /// </summary>
+        [XmlInclude(typeof(Book))]
+        [XmlInclude(typeof(Paper))]
+        [XmlInclude(typeof(EResources))]
+        [Serializable]
+        public abstract class Source
         {
             public string PubName, surname;
             /// <summary>
             /// Конструктор класса
-            /// </summary>
+             /// </summary>
             /// <param name="PubName">Название публикации</param>
             /// <param name="surname">Фамилия автора публикации</param>
             public Source(string PubName, string surname)
@@ -25,6 +37,7 @@ namespace lab2
                 this.PubName = PubName;
                 this.surname = surname;
             }
+            public Source() { }
             /// <summary>
             /// Процедура вывода информации на экран</summary>
             public abstract void info();
@@ -35,7 +48,7 @@ namespace lab2
             /// <returns>Правда или ложь, что написал рассматриваемое произведение</returns>
             public abstract bool match(string author);
         }
-        class Book : Source
+        public sealed class Book : Source
         {
             string publisher,year;
             /// <summary>
@@ -47,6 +60,7 @@ namespace lab2
             /// <param name="publisher">Издатель</param>
             public Book(string PubName, string surname,string year, string publisher) :base(PubName,surname)
             {
+                Trace.WriteLine("Book.Book");
                 this.publisher = publisher;
                 this.year = year;
             }
@@ -55,6 +69,7 @@ namespace lab2
             /// </summary>
             public override void info()
             {
+                Trace.WriteLine("Book.info");
                 Console.WriteLine("Название: " + PubName + "; Фамилия автора: " + surname + "; Год: " + year + "; Издательство: " + publisher);
             }
             /// <summary>
@@ -64,11 +79,13 @@ namespace lab2
             /// <returns>Правда или ложь, что написал рассматриваемое произведение</returns>
             public override bool match(string author)
             {
+                Trace.WriteLine("Book.match");
                 if (surname == author) return true;
                 return false;
             }
+            public Book() { }
         }
-        class Paper : Source
+        public sealed class Paper : Source
         {
             string MagName,number,year;
             /// <summary>
@@ -81,15 +98,18 @@ namespace lab2
             /// <param name="year">Год выхода</param>
             public Paper(string PubName, string surname, string MagName, string number, string year) :base(PubName,surname)
             {
+                Trace.WriteLine("Paper.Paper");
                 this.MagName = MagName;
                 this.number = number;
                 this.year = year;
             }
+            public Paper() { }
             /// <summary>
             /// Процедура вывода информации на экран
             /// </summary>
             public override void info()
             {
+                Trace.WriteLine("Paper.info");
                 Console.WriteLine("Название: " + PubName + "; Фамилия автора: " + surname + "; Журнал: " + MagName + "; Номер: " + number + "; Год: " + year);
             }
             /// <summary>
@@ -99,11 +119,12 @@ namespace lab2
             /// <returns>Правда или ложь, что написал рассматриваемое произведение</returns>
             public override bool match(string author)
             {
+                Trace.WriteLine("Paper.match");
                 if (surname == author) return true;
                 return false;
             }
         }
-        class EResources : Source
+        public sealed class EResources : Source
         {
             string link, annot;
             /// <summary>
@@ -115,14 +136,17 @@ namespace lab2
             /// <param name="annot">Аннотация</param>
             public EResources(string PubName, string surname, string link, string annot) :base(PubName,surname)
             {
+                Trace.WriteLine("EResources.EResources");
                 this.annot = annot;
                 this.link = link;
             }
+            public EResources() { }
             /// <summary>
             /// Процедура вывода информации на экран
             /// </summary>
             public override void info()
             {
+                Trace.WriteLine("EResources.info");
                 Console.WriteLine("Название: " + PubName + "; Фамилия автора: " + surname + "; Ссылка: " + link + "; Аннотация: " + annot);
             }
             /// <summary>
@@ -132,6 +156,7 @@ namespace lab2
             /// <returns>Правда или ложь, что написал рассматриваемое произведение</returns>
             public override bool match(string author)
             {
+                Trace.WriteLine("EResources.match");
                 if (surname == author) return true;
                 return false;
             }
@@ -145,6 +170,7 @@ namespace lab2
         /// <returns></returns>
      public static Source[] CreateCatalog(string[] BookInf, string[] PaperInf, string[] ERInf)
         {
+            Trace.WriteLine("lab2.CreateCatalog");
             int BookNum, PaperNum, ERNum, temp;
             temp = 0;
             BookNum = Convert.ToInt32(BookInf[0]);
@@ -178,23 +204,33 @@ namespace lab2
         /// <param name="args">параметр для работы main</param>
         static void Main(string[] args)
         {
-            try
+            Trace.WriteLine("lab2.Main");
+            XmlSerializer serializer = new XmlSerializer(typeof(Source[]));
+            
+            string[] BookInf = File.ReadAllLines("Book.txt");
+            string[] PaperInf = File.ReadAllLines("Paper.txt");
+            string[] ERInf = File.ReadAllLines("EResources.txt");
+            Source[] MainCatalog = CreateCatalog(BookInf, PaperInf, ERInf);
+            foreach (Source i in MainCatalog)
             {
-                string[] BookInf = File.ReadAllLines("Book.txt");
-                string[] PaperInf = File.ReadAllLines("Paper.txt");
-                string[] ERInf = File.ReadAllLines("EResources.txt");
-                Source[] MainCatalog = CreateCatalog(BookInf, PaperInf, ERInf);
-                foreach (Source i in MainCatalog)
-                    i.info();
-                Console.WriteLine("Введите имя нужного автора: ");
-                string author = Console.ReadLine();
-                Console.WriteLine("Нужный автор написал следующее: ");
-                foreach (Source i in MainCatalog)
-                     if (i.match(author)) Console.WriteLine(i.PubName);
+                i.info();
             }
-            catch
+            
+            Console.WriteLine("Введите имя нужного автора: ");
+            string author = Console.ReadLine();
+            Console.WriteLine("Нужный автор написал следующее: ");
+            foreach (Source i in MainCatalog)
             {
-                Console.WriteLine("Не найдены файлы для чтения");
+                if (i.match(author)) Console.WriteLine(i.PubName);
+            }
+            using (StringWriter textWriter = new StringWriter())
+            {
+                serializer.Serialize(textWriter, MainCatalog);
+                Console.WriteLine(textWriter.ToString());
+            }
+            using (StreamWriter streamWriter = new StreamWriter("db.xml"))
+            {
+                serializer.Serialize(streamWriter, MainCatalog);
             }
             Console.ReadLine();
         }
