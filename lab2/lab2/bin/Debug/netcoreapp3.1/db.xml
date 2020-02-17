@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Source xsi:type="Book">
+    <PubName>Nemo</PubName>
+    <surname>kek</surname>
+  </Source>
+  <Source xsi:type="Book">
+    <PubName>Nemo1</PubName>
+    <surname>kek</surname>
+  </Source>
+  <Source xsi:type="Paper">
+    <PubName>Sport</PubName>
+    <surname>cheburek</surname>
+  </Source>
+  <Source xsi:type="EResources">
+    <PubName>bla</PubName>
+    <surname>lol</surname>
+  </Source>
+</ArrayOfSource>
