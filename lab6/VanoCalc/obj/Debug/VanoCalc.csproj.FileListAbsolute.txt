@@ -1,0 +1,18 @@
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\bin\Debug\VanoCalc.exe.config
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\bin\Debug\VanoCalc.exe
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\bin\Debug\VanoCalc.pdb
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.csprojAssemblyReference.cache
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.VanoCalculator.resources
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.Properties.Resources.resources
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.csproj.GenerateResource.cache
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.exe
+C:\Users\Ivan\Desktop\6 sem\c#\VanoCalc\VanoCalc\obj\Debug\VanoCalc.pdb
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\bin\Debug\VanoCalc.exe.config
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\bin\Debug\VanoCalc.exe
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\bin\Debug\VanoCalc.pdb
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.csprojAssemblyReference.cache
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.VanoCalculator.resources
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.Properties.Resources.resources
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.csproj.GenerateResource.cache
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.exe
+C:\Users\Ivan\Desktop\6sem\c#\lab6\VanoCalc\obj\Debug\VanoCalc.pdb
