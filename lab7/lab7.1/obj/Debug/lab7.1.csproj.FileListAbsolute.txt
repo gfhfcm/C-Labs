@@ -1,0 +1,9 @@
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\bin\Debug\lab7.1.exe.config
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\bin\Debug\lab7.1.exe
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\bin\Debug\lab7.1.pdb
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7.1.csprojAssemblyReference.cache
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7._1.Properties.Resources.resources
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7.1.csproj.GenerateResource.cache
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7.1.exe
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7.1.pdb
+C:\Users\Ivan\source\repos\lab7.1\lab7.1\obj\Debug\lab7._1.Running_Button.resources
